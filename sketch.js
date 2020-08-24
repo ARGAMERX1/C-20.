@@ -29,7 +29,10 @@ function draw(){
 
    
 edges = createEdgeSprites();
+if (car1.x === bouncer1.x && car1.y === bouncer1.y ){
+car1.velocityX = deformation;
 
+}
 deformation  = 0.5*speed*speed/2250
 
 if(car1.deformation >100){
@@ -54,3 +57,21 @@ drawSprites();
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
