@@ -1,62 +1,55 @@
-var bouncer1 ;
-var bouncer2;
-var bouncer3;
-var ball1;
-var ball2;
-var ball3;
+var car1;
+
+var bouncer1;
+
+var speed;
+var weight;
+
+var deformation;
+
+function setup(){
+    createCanvas(1600,400);
+
+car1 = createSprite(40,350,10,10);
+bouncer1 = createSprite(25,350,8,60);
 
 
-function setup() {
-  createCanvas(800,400);
 
-bouncer1 = createSprite(750,20,100,10);
-ball1 = createSprite(780,30,10,10);
-
-
-bouncer2 = createSprite(600,20,100,10);
-ball2 = createSprite(600,30,10,10);
-
-bouncer3 = createSprite(400,20,100,10);
-ball3 = createSprite(400,30,10,10);
-
-bouncer4 = createSprite(200,20,100,10);
-ball4 = createSprite(200,30,10,10);
-
-
+speed=random(55,90);
+weight=random(400,1500); 
 }
 
-function draw() {
-  background(255,255,255);  
-  drawSprites();
-ball1.velocityY=5
-ball2.velocityY=5
-ball3.velocityY=5
-ball4.velocityY=5
 
+
+function draw(){
+   background(220);
+   
+   
+    car1.velocityX = speed;
+
+   
 edges = createEdgeSprites();
-ball1.bounceOff(edges[0]);
-ball1.bounceOff(edges[1]);
-ball1.bounceOff(edges[2]);
-ball1.bounceOff(edges[3]);
-ball1.bounceOff(bouncer1)
 
-ball2.bounceOff(edges[0]);
-ball2.bounceOff(edges[1]);
-ball2.bounceOff(edges[2]);
-ball2.bounceOff(edges[3]);
-ball2.bounceOff(bouncer2)
+deformation  = 0.5*speed*speed/2250
 
-ball3.bounceOff(edges[0]);
-ball3.bounceOff(edges[1]);
-ball3.bounceOff(edges[2]);
-ball3.bounceOff(edges[3]);
-ball3.bounceOff(bouncer3)
+if(car1.deformation >100){
+car1.shapeColor = green;
+}
 
-ball4.bounceOff(edges[0]);
-ball4.bounceOff(edges[1]);
-ball4.bounceOff(edges[2]);
-ball4.bounceOff(edges[3]);
-ball4.bounceOff(bouncer4)
+if(car1.deformation > 100 || > 180 ){
+car1.shapeColor = yellow;
+}
+if(car1.velocityX < 180){
+    car1.shapeColor = red;
+}
+
+
+
+
+
+
+drawSprites();
+
 
 
 
